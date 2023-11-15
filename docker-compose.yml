@@ -8,7 +8,7 @@ services:
     volumes:
       - ./:/app # Mapeia a pasta local para dentro do container
     ports:
-      - "3000:3000" # Mapeia a porta 3000 do host para a porta 3000 do container
+      - "3001:3001" # Mapeia a porta 3000 do host para a porta 3000 do container
     command: sh -c "npm install && npm start" # Comando para iniciar a aplicação
     networks:
       - web
@@ -18,7 +18,7 @@ services:
     image: postgres:16.0-alpine3.18
     container_name: pidm-postgres # Nome do container
     ports:
-      - "9987:9987" # Mapeia a porta 9987 do host para a porta 5432 do container
+      - "9001:9001" # Mapeia a porta 9987 do host para a porta 5432 do container
     environment:
       POSTGRES_USER: postgres # Variável de ambiente para definir o usuário do Postgres
       POSTGRES_PASSWORD: 82caf63d397caaff90d6a23af7a3f08781eb972e696cec55ac162d4a2d5d9603 # Variável de ambiente para definir a senha do Postgres
