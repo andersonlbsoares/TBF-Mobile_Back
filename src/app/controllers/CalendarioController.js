@@ -26,6 +26,21 @@ class CalendarioController {
     }
   }
 
+  async findByAluno(request, response) {
+    const id = request.params.idAluno;
+    try {
+      const result = await CalendarioRepository.findByAluno(id);
+      if (Object.keys(result).length == 0) {
+        response.json({ message: "ID not found" });
+      } else {
+        response.json(result);
+      }
+    } catch (error) {
+      response.json(error);
+    }
+  }
+
+
   async findByNome(request, response) {
     const nome = request.params.nomeCalendario;
     try {

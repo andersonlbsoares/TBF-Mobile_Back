@@ -18,11 +18,14 @@ router.get("/agenda/:idAgenda", validateToken, Agenda.findById);
 router.delete("/agenda/:idAgenda", validateToken, Agenda.deleteById);
 router.put("/agenda/:idAgenda", validateToken, Agenda.updateById);
 router.post("/agenda", validateToken, Agenda.store);
+router.get("/agenda-aluno/:idAluno", validateToken, Agenda.findByAluno);
+router.put("/agenda-concluir/:idAgenda", Agenda.concluir);
 
 router.get("/calendario", validateToken, Calendario.findAll);
 router.get("/calendario/:idCalendario", validateToken, Calendario.findById);
 router.delete("/calendario/:idCalendario", validateToken, Calendario.deleteById);
 router.put("/calendario/:idCalendario", validateToken, Calendario.updateById);
 router.post("/calendario", validateToken, Calendario.store);
+router.get("/calendario-aluno/:idAluno", validateToken, Calendario.findByAluno);
 
 export default router;

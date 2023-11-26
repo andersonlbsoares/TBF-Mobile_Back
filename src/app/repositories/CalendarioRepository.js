@@ -41,6 +41,11 @@ class CalendarioRepository {
         return this.queryCalendario(sql, [idCalendario]);
     }
 
+    findByAluno(idAlunoCalendario) {
+        const sql = "SELECT * FROM calendarios WHERE id_aluno_calendario = $1;";
+        return this.queryCalendario(sql, [idAlunoCalendario]);
+    }
+
 
 
     update(idCalendario, calendario) {

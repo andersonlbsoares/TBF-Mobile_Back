@@ -62,6 +62,17 @@ class AgendaRepository {
         return this.queryAgenda(sql, [idAgenda]);
     }
 
+    findByAluno(idAlunoAgenda) {
+        const sql = "SELECT * FROM agendas WHERE id_aluno_agenda = $1;";
+        return this.queryAgenda(sql, [idAlunoAgenda]);
+    }
+
+    concluir(idAgenda) {
+        //Inverte o valor do campo concluido_agenda
+        const sql = "UPDATE agendas SET concluido_agenda = NOT concluido_agenda WHERE id_agenda = $1;";
+        return this.queryAgenda(sql, [idAgenda]);
+    }
+
 }
 
 export default new AgendaRepository();
